@@ -378,10 +378,9 @@
         angryImg.style.borderRadius = "16px";
         angryImg.style.boxShadow = "0 10px 24px rgba(201, 29, 114, 0.2)";
         angryImg.style.marginTop = "-1rem";
-        angryImg.style.opacity = "0";
-        angryImg.style.transition = "opacity 0.6s ease";
+        // Show instantly: set opacity to 1 and do not add a transition/fade
+        angryImg.style.opacity = "1";
         question.after(angryImg);
-        setTimeout(() => { angryImg.style.opacity = "1"; }, 50);
 
         window.setTimeout(() => {
           noButton.classList.add("is-vanishing");
