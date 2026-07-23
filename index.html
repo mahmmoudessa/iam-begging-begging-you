@@ -503,22 +503,21 @@
       "فعلا  لا 😢",
       "فكري تاني طاه 🥺",
       "يا بنت الحلال عيب كدا ",
-      "ما قولنا ظبطنا مع الارصاد الجوية خلاص الله ",
-      "خلاص ام الزرار ده هيتلغي حالا. "
+      "لا احا بقي ",
+      "ادي ام الزرار"
     ];
 
     const beggingLines = [
       "أنا كدا دخلت مرحلة التوسل الرسمي",
       "حتى الارصاد قالت Saturday مناسب",
       "لا دي كلمة كبيرة على قلب صغير",
-      "آخر محاولة محترمة قبل الدراما",
+      "خلاص مفيش تفاهم",
       "تمام كدا مفيش زرار No من أصله"
     ];
 
     let catchCount = 0;
     let teleportLocked = false;
     let noButtonGone = false;
-    const canUseHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
     function setYesEnergy() {
       const scale = Math.min(1.5, 1 + catchCount * 0.09);
@@ -643,16 +642,9 @@
       }
     }
 
-    if (canUseHover) {
-      noButton.addEventListener("pointerenter", moveNoButton);
-      document.addEventListener("pointermove", handlePointerNear, { passive: true });
-    }
-
     noButton.addEventListener("pointerdown", (event) => {
-      if (!canUseHover) {
-        event.preventDefault();
-        moveNoButton();
-      }
+      event.preventDefault();
+      moveNoButton();
     });
 
     noButton.addEventListener("click", (event) => {
@@ -661,7 +653,7 @@
     });
 
     document.addEventListener("pointerdown", (event) => {
-      if (!canUseHover && event.target !== yesButton) {
+      if (event.target !== yesButton) {
         handlePointerNear(event);
       }
     }, { passive: true });
